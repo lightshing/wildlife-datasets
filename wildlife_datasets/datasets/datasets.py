@@ -274,8 +274,16 @@ class WildlifeDataset:
         else:
             raise ValueError(f"Invalid img_load argument: {self.img_load}")
 
+        # if self.transform:
+        #     img = self.transform(img)
         if self.transform:
-            img = self.transform(img)
+            img_np = np.array(img)
+            transformed_img = self.transform(img_np)
+
+            pil_img = Image.fromarray(transformed_img)
+            img = pil_img
+        # 
+        # 
 
         return img
 
