@@ -280,8 +280,12 @@ class WildlifeDataset:
             img_np = np.array(img)
             transformed_img = self.transform(img_np)
 
-            pil_img = Image.fromarray(transformed_img)
-            img = pil_img
+        #
+        #     pil_img = Image.fromarray(transformed_img)
+        #     img = pil_img
+
+            img = transformed_img
+        #
         # 
         # 
 
